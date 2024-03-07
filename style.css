@@ -1,0 +1,177 @@
+* {
+    font-family: Lemonada, sans-serif;
+}
+
+body {
+    margin: 0;
+    color: white;
+    background-color: #222831;
+}
+
+main {
+    width: 100%;
+    max-width: 40em;
+    margin: 0 auto;
+    padding: 0 1em;
+    padding-top: 10vh;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+#prompt {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#hwd {
+    visibility: hidden;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#note {
+    visibility: hidden;
+    display: block;
+    margin-top: 1em;
+    padding: 1em 1.5em;
+    box-shadow: 0 0 0 1px #00ADB5;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 1;
+}
+
+#prompt,
+#hwd {
+    font-size: 22px
+}
+
+#bouquet {
+    visibility: hidden;
+    position: fixed;
+    bottom: 1em;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 214px;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+button img {
+    width: 48px;
+    height: auto;
+    animation: shake 2s infinite;
+}
+
+.open button img {
+    opacity: 0.5;
+}
+
+@keyframes shake {
+    33% {
+        transform: rotate(20deg);
+    }
+
+    66% {
+        transform: rotate(-20deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+/* CLICKED */
+.clicked #prompt {
+    animation: fadeout 2s linear;
+}
+
+@keyframes fadeout {
+    to {
+        transform: translateY(-1em);
+        opacity: 0;
+    }
+}
+
+.clicked button img {
+    animation: halffade 2s linear;
+}
+
+@keyframes halffade {
+    to {
+        opacity: 0.5;
+    }
+}
+
+.open #note,
+.open #hwd {
+    animation: fadein 0.5s linear;
+}
+
+@keyframes fadein {
+    from {
+        transform: translateY(-0.5em);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.open #bouquet {
+    animation: extrafadein 2s forwards;
+}
+
+@keyframes extrafadein {
+    from {
+        transform: translate(-50%, 4em);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+#butterflies img {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+}
+
+#hearts img {
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    animation: burst 3s forwards;
+}
+
+@keyframes burst {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--xrange), var(--yrange));
+    }
+}
